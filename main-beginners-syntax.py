@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
 
 # In[2]:
 
@@ -46,18 +44,18 @@ def rgb2gray(rgb):
 
 
 # training targets, you can use your custome csv file if you already created it with "training-sample.py"
-targets = pd.Series.from_csv('data_csv/jester-v1-train.csv',header=None,sep = ";").to_dict()
-targets[34870]
+targets = pd.Series.from_csv('data_csv/train.csv',header=None,sep = ";").to_dict()
+targets[10]
 # validation targets, you can use your custome csv file if you already created it with "validation-sample.py"
-targets_validation = pd.Series.from_csv('data_csv/jester-v1-validation.csv',header=None,sep = ";").to_dict()
-targets_validation[9223]
+targets_validation = pd.Series.from_csv('data_csv/validation.csv',header=None,sep = ";").to_dict()
+targets_validation[4]
 
 
 # In[8]:
 
 
 len(targets)
-targets[100000]
+targets[10]
 
 
 # In[9]:
@@ -71,10 +69,7 @@ len(targets_name)'''
 
 # The classes (labels) we want to use
 targets_name = [
-    "Swiping Right",
-    "Sliding Two Fingers Left",
-    "No gesture",
-    "Thumb Up"
+    "Limp"
     ]
 
 
@@ -207,7 +202,7 @@ training_targets[0:20]
 
 # In[21]:
 
-
+print("S")
 #show data
 fig = plt.figure()
 for i in range(2,4):
