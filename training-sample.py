@@ -22,14 +22,14 @@ def copyDirectory(src , dest):
 
 
 path_dest = 'training_samples' # The folder where we will put all our training samples
-path_source = '20BN-JESTER' # The folder that contains all the data (Jester 20bn)
-csv_file = 'data_csv/jester-v1-train.csv' # training csv file
+path_source = 'datasets' # The folder that contains all the data
+csv_file = 'data_csv/train.csv' # training csv file
 
 file = open(csv_file, 'r')
 reader = csv.reader(file, delimiter=';')
 count = 0
-simple = 1500 # number of samples by class for training
-class_ = ['Thumb Up', 'Swiping Right', 'Sliding Two Fingers Left', 'No gesture'] # The classes we want to use
+sample = 10 # number of samples by class for training
+class_ = ['Limp'] # The classes we want to use
 rows = []
 
 for c in class_:
@@ -38,11 +38,11 @@ for c in class_:
         ref = line[0]
 
         if target == c:
-            dep  = copyDirectory(path_source+ref , path_dest+ref)
+            dep  = copyDirectory(path_source + '/' + ref , path_dest + '/' + ref)
             if dep == 1:
                 count += 1
                 rows.append([ref, target])
-            if count == simple:
+            if count == sample:
                 break
 
 # you can uncomment this code if you want to create your own csv for the samples
